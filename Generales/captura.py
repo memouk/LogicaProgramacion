@@ -19,6 +19,59 @@ class clsGenerales:
         pass  #para aquellos casos en que la sintaxis requiera una instrucción, pero no queramos que se emplee.
 
 #Base
+    def leerEnteroPos(self,texto):
+        x=win.askinteger("Captura de dato: Entero positivo >=0",str(texto))
+        if x<0:
+            self.Mensaje("Valor no valido debe ser mayor o  igual a 0")
+            return self.leerEnteroPos(texto)
+        return x
+    def leerEnteroPosMy0(self,texto):
+        x=win.askinteger("Captura de dato: Entero positivo >0",str(texto))
+        if x<=0:
+            self.Mensaje("Valor no valido debe ser mayor a 0")
+            return self.leerEnteroPosMy0(texto)
+        return x
+    def leerEnteroNeg(self,texto):
+        x=win.askinteger("Captura de dato: Entero positivo >0",str(texto))
+        if x>=0:
+            self.Mensaje("Valor no valido debe ser menor o igual a 0")
+            return self.leerEnteroNeg(texto)
+        return x
+    def leerRealPos(self,texto):
+        x=win.askfloat("Captura de dato: Entero positivo >0",str(texto))
+        if x<0:
+            self.Mensaje("Valor no valido debe ser mayo o igual a 0")
+            return self.leerRealPos(texto)
+        return x
+    
+    def leerRealPosMy0(self,texto):
+        x=win.askfloat("Captura de dato: Entero positivo >0",str(texto))
+        if x<=0:
+            self.Mensaje("Valor no valido debe ser mayor a 0")
+            return self.leerRealPosMy0(texto)
+        return x
+    def leerRealNegativo(self,texto):
+        x=win.askfloat("Captura de dato: Entero positivo >0",str(texto))
+        if x>0:
+            self.Mensaje("Valor no valido debe ser menor a 0")
+            return self.leerRealNegativo(texto)
+        return x
+    
+    def leerCadena2(self,texto):
+        x=win.askstring("Captura de dato: Entero positivo >0",str(texto))
+        if "".__eq__(x.strip()):
+            self.Mensaje("Valor no valido debe contener una cadena")
+            return self.leerCadena2(texto)
+        return x.strip()
+    
+    def leerNota_05(self,texto):
+        x=win.askstring("Captura de dato: Entero positivo >0",str(texto))
+        if x<0 or x>5:
+            self.Mensaje("la nota debe estar entre 0 y 5")
+            return self.leerNota_05(texto)
+        return x
+
+
     def Mensaje ( self, texto ):
         msj.showinfo ( title = "Aviso", message = texto )
         # https://recursospython.com/guias-y-manuales/cuadros-de-dialogo-messagebox-en-tkinter/
