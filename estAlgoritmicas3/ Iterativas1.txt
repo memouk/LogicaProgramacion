@@ -1,0 +1,44 @@
+La factura de servicios públicos se calcula según la siguiente taDla, CUyos
+costos están dados en centavos de dólar. Elabore un programa que pida el
+código de la instalación(codInst), estrato (est) y las cantidades por cada
+concepto (kwh, kM3 y kMin); muestre el total a pagar por kiloVatio Hora, metro
+cúbico (m3), minutos telefónicos (minTel) y total a pagar en pesos colombianos
+para cada cliente; facturar hasta que el código de la instalación sea <= 0. Al
+final, mostrar la cantidad de facturas realizadas y el total facturado. ← ∧ 
+
+
+importar clsGenerales
+
+publico clase iterativa
+
+    clsGenerales og =nuevo clsGenerales()
+
+    entero codInst,est,kwh,kM3,kMin,cont 
+    
+    privado Metodo vacio facturar()
+        cont ← 0
+        mientras (cont <= 10) hacer
+            si (est>=1 ∧ est<=2) entonces
+            
+    fin Metodo
+   
+
+
+
+    codInst ← og.leerEnteroPosMy0("ingrese el codigo")
+    est=
+
+
+
+
+
+
+
+
+
+
+Estrato Valor Kwh. Valor m3 Valor Minuto Teléfono
+EN 7 105 5
+
+3-4 195: 130 10
+5-6 220 159 15
