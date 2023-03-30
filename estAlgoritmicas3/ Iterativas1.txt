@@ -6,39 +6,60 @@ cúbico (m3), minutos telefónicos (minTel) y total a pagar en pesos colombianos
 para cada cliente; facturar hasta que el código de la instalación sea <= 0. Al
 final, mostrar la cantidad de facturas realizadas y el total facturado. ← ∧ 
 
-
 importar clsGenerales
 
-publico clase iterativa
+Publico Clase iterativa1
 
     clsGenerales og =nuevo clsGenerales()
+    Publico metodo vacio Principal()
+        facturar()
+    Fin Metodo    
+    Privado Metodo vacio facturar()
+        entero codInst,est,kwh,kM3,kMin,vkwh,vkM3,vkMin,kfact←0
+        Real vrDol,vctD, vrAP acumFact←0
+        Cadena rpta
+        vrDol ← og.leerRealPosMy0("ingrese el valor del dolar hoy")
+        vctD ←  vrDol/100
+        codInst ← og.leerEntero("ingrese el codifo de la instalacion o un valor <= 0 para salir")
+        mientras (codInst > 0) hacer
+            est ← og.leerEnteroPosMy0("ingrese el estrato entre (1-6)")
+            si (est >= 1 ∧ est <= 6) Entonces
+                kwh ← og.leerEnteroPos("ingrese el consumo de energia")
+                kM3 ← og.leerEnteroPos("ingrese el consumo de agua")
+                kMin ← og.leerEnteroPos("ingrese el consumo de telefonia")
+                
+                si (est <= 2) Entonces
+                    vkwh ← kwh*170*vctD
+                    vkM3 ← kM3*105*vctD
+                    vkMin ← kMin*5*vctD
+                    vrAP ← vkwh+vkM3+vkMin                    
+                sino si(est <= 4) Entonces
+                    vkwh ← kwh*195*vctD
+                    vkM3 ← kM3*130*vctD
+                    vkMin ← kMin*10*vctD
+                    vrAP ← vkwh+vkM3+vkMin 
+                sino 
+                    vkwh ← kwh*220*vctD
+                    vkM3 ← kM3*155*vctD
+                    vkMin ← kMin*15*vctD
+                    vrAP ← vkwh+vkM3+vkMin 
+                    
+                rpta ←  "Codigo de instalacion: ", codInst,
+                        "energia: ",vkwh,
+                        "Agua: ",vkM3,
+                        "Telefonia: ",vkMin,
+                        "total a pagar: ",vrAP
+                og.Mensaje(rpta)
+                kfact ←kfact+1
+                acumFact←acumFact+vrAP
 
-    entero codInst,est,kwh,kM3,kMin,cont 
-    
-    privado Metodo vacio facturar()
-        cont ← 0
-        mientras (cont <= 10) hacer
-            si (est>=1 ∧ est<=2) entonces
-            
-    fin Metodo
-   
-
-
-
-    codInst ← og.leerEnteroPosMy0("ingrese el codigo")
-    est=
-
-
-
-
-
-
-
-
-
-
-Estrato Valor Kwh. Valor m3 Valor Minuto Teléfono
-EN 7 105 5
-
-3-4 195: 130 10
-5-6 220 159 15
+                codInst ← og.leerEntero("ingrese el codifo de la instalacion o un valor <= 0 para fin")
+            si no
+                og.Mensaje("estrato no valido")
+            fin si
+        Fin Miestras
+        rpta ←  "tatal faturas", kfact,
+                "total valores: ",acumFact
+        og.Mensaje(rpta)
+    Fin Metodo
+Fin clase
