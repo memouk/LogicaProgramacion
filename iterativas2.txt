@@ -1,0 +1,50 @@
+Se dispone de una cantidad no determinada de familias, cada una de las cuales
+tiene un número de hijos. Escribir un algoritmo para averiguar la media de edad
+de los hijos de cada familia. Por cada familia se lee el apellido y se termina
+cuando el apellido es un vacío o el signo de negativo. Mostrar el apellido y la
+respectiva media por cada familia y la media general. ← ∧ 
+
+importar clsGenerales
+
+Publico Clase iterativa2
+    clsGenerales xx = nuevo clsGenerales()
+    
+    Privado Metodo Real promFam(Entero cant)
+        Entero k ← 0, acum ← 0, edad
+        Mientras(k <= cant )Hacer
+            edad ← xx.leerEnteroPos("ingrese la edad ")
+            acum ← acum + edad
+            k ← k + 1
+        Fin Mientras
+        retorne acum/k
+    Fin Metodo
+    Privado Metodo Real promGeneral(Entero cantF, Real promEdadFam)
+        retorne promEdadFam/cantF
+    Fin Metodo
+    Publico Metodo vacio Principal()
+        hallaProm()
+    Fin Metodo
+
+    Privado Metodo vacio hallaProm()
+        Entero cantF ← 0
+        Real acumProm ← 0, acumPromFam
+        Cadena rpta,apellido 
+        apellido ← xx.leerCadena(ingrese el apellido o vacio o signo (-) para salir)
+        Mientas(apellido <> "" ∧ apellido<> "-" )Hacer
+            kh ← xx.leerEnteroPos("ingrese la cantidad de hijos:")
+            si (kh <> o)Entonces
+                acumPromFam ← promFam(kh)
+                rpta ← "Media de la familia ","=", acumPromFam
+                xx.Mensaje(rpta)
+            Fin si
+            cantF ← cantF + 1
+            acumProm ← acumProm + acumPromFam
+
+        Fin Mientras
+        si (kf <>0)Entonces
+            rpta ← "Media general", promGeneral(cantF,acumProm) 
+            og.Mensaje(rpta)
+        Fin si
+        
+    Fin Metodo
+Fin Clase
