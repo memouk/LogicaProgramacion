@@ -7,37 +7,56 @@ pagar (sueldo base más comisiones). Mostrar al final: cantidad total de ventas
 realizadas, el valor total de ventas, el total de comisiones otorgadas y total a
 pagar por nómina.. A — *
 
-
 importar clsGenerales
 
 Publico Clase SuSeguros
     clsGenerales xx= nuevo clsGenerales()
 
-    Privado Metodo vacio comisiones()
-        Entero k ← 0, acumVent ← 0,kv
-        real porc, ventas, sueldo
-        Cadena cod,rpta
-        cod ← xx.leerCadena2("ingrese codigo del vendedor ")
-        sueldo ← xx.leerRealPos("ingrese el sueldo ")
-        kv ← xx.leerEnteroPos("ingrese numero de ventas ")        
-        porc ← xx.leerRealPos("ingrese el porcentaje de comn entre ")
-        Si (porc <=5.5 ) Entonces
-            Mientras(k <= kv) Hacer
-                ventas ← xx.leerRealPos("ingrese el valor de la venta")            
-                acum ← acum + ventas
-                k ← k+1
-            Fin mientra
-        comision ← acum*porc/100
-        Fin Si   
-        rpta ← "El vendedor con codigo",cod,
-                "numero de ventas",kv,
-                "con valor de ",acum,
-                "obtuvo una comision por ventas de ", comision,
-                "su sueldo es",sueldo+comision
-        xx.Mensaje(rpta)
+    Privado Metodo Real vrVen(Entero kv)
+        Entero k,i
+        real  ventas,acumVent
+        Para (i ←1 Hasta kv, 1) Hacer
+            ventas ← xx.leerRealPosMy0("ingrese el valor de la venta")
+            acumVent ← acumVent + venta
+        Fin Para
+        retorne acumVent 
     Fin Metodo
-    Publico Metodo vacio principal()
-        comisiones()
+    Privado Metodo real vrPorcComi()
+        real pcomi
+        Mientras (verdadero) Hacer
+            pcomi ← xx.leerRealPos("ingrese elporcentaje entre 0 y 5.5")
+            Si (pcomi <= 5.5) Entonces
+                retorne pcomi
+            Si no
+                xx.Mensaje("valor no valildo")
+            Fin Si
+        Fin Mientras
+    Fin Metodo
+    Privado Metodo Real vrComi(Real vtas,real porc)
+        retorne vtas*porc/100
+    Fin Metodo
+
+    Publico Metodo vacio Principal()
+        hallarDatos()        
+    Fin Metodo
+
+    Privado Metodo vacio hallarDatos()
+        Entero nVend,kv,h,cod
+        Real P,vrVtasVend, salBase
+        nVend ←  xx.leerRealPosMy0 ("ingrese la cantidad de vendedores")
+        Para (h←1 hasta nVend, 1) Hacer
+            cod ← xx.leerEnteroPosMy0("ingrese el codigo del vendedor")
+            salBase ← xx.leerRealPosMy0("ingrese el salario")
+            P ← vrPorcComi()
+            kv ← xx.leerEnteroPos("ingrese la cantidad de ventas")
+            vrVtasVend ← 0
+            vrComi ← 0
+            Si (kv > 0) Entonces
+                vrVtasVend ← vrVen(kv)
+                vrComi ← vrComi(vrVtasVend,P)
+            Fin Si
+            ////falta los mensajes y rpta
+        Fin para
     Fin Metodo
     
 
