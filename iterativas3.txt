@@ -1,0 +1,44 @@
+SuSeguros SAS, tiene nVend vendedores y c/u hace kv cantidad de ventas a
+la semana. Cada vendedor recibe un sueldo base y tiene un porcentaje extra
+por comisiones P (0 < P < 5.5) por las ventas realizadas. El gerente desea
+saber por cada vendedor: el código, cuánto vendió, cuánto dinero obtendrá
+por concepto de comisiones por las ventas realizadas, y cuánto le debe de
+pagar (sueldo base más comisiones). Mostrar al final: cantidad total de ventas
+realizadas, el valor total de ventas, el total de comisiones otorgadas y total a
+pagar por nómina.. A — *
+
+
+importar clsGenerales
+
+Publico Clase SuSeguros
+    clsGenerales xx= nuevo clsGenerales()
+
+    Privado Metodo vacio comisiones()
+        Entero k ← 0, acumVent ← 0,kv
+        real porc, ventas, sueldo
+        Cadena cod,rpta
+        cod ← xx.leerCadena2("ingrese codigo del vendedor ")
+        sueldo ← xx.leerRealPos("ingrese el sueldo ")
+        kv ← xx.leerEnteroPos("ingrese numero de ventas ")        
+        porc ← xx.leerRealPos("ingrese el porcentaje de comn entre ")
+        Si (porc <=5.5 ) Entonces
+            Mientras(k <= kv) Hacer
+                ventas ← xx.leerRealPos("ingrese el valor de la venta")            
+                acum ← acum + ventas
+                k ← k+1
+            Fin mientra
+        comision ← acum*porc/100
+        Fin Si   
+        rpta ← "El vendedor con codigo",cod,
+                "numero de ventas",kv,
+                "con valor de ",acum,
+                "obtuvo una comision por ventas de ", comision,
+                "su sueldo es",sueldo+comision
+        xx.Mensaje(rpta)
+    Fin Metodo
+    Publico Metodo vacio principal()
+        comisiones()
+    Fin Metodo
+    
+
+Fin Clase
