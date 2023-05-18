@@ -1,0 +1,52 @@
+importar clsGenerales
+importar clsMatrizGral
+publico clase matriz1
+	clsGenerales og= nuevo clsGenerales ()
+	clsMatrizGral om= nuevo clsMatrizGral()
+	publico metodo vacio principal()
+		entero N<-og.EnteroPosMy0("Ingrese el tamaño")
+		real datos [N][N]
+		datos[][]<-om.LlenarReales(datos,N,N,"Ingrese un valor Real")
+		om.MostrarReales(datos,N,N,"Valores reales ingresados")
+		mymn(datos,N,N)
+        sumPromFil(datos,N)
+        sumPromCol(datos,N)
+	fin metodo
+	privado metodo vacio mymn (Real [][] mat, Entero t)
+		entero i,j
+		Real my<- mat[0][0] mn<-[0][0]
+		Para ( i<-0 hasta t-1,1 ) hacer //Recorrido por filas
+			para Para ( j<-0 hasta t-1,1) hacer //Recorrido por filas
+				si (mat[i][j]<mn) entonces
+					mn<-mt[i][j]
+				sino si (si (mat[i][j]>mn) entonces) entonces
+					my<-mt[i][j]
+				fin si
+			fin para
+		fin para
+		og.Mensaje("El mayor es: ",my,"y el menor es: ",mn)
+	fin metodo
+
+    privado Metodo vacio sumPromFil(Real [][] m, Entero t)	
+        Entero i,j
+        Real Suma
+        Para (i←0 hasta t-1,1) Hacer
+            suma ←0
+            Para (j←0 hasta t-1,1) Hacer
+                suma ← suma + m[i][j]
+            Fin Para
+            og.Mensaje("fila: ",i,"suma ->",suma, ", promerdi: ",(suma/t))
+        Fin Para
+    Fin Metodo
+    privado Metodo vacio sumPromCol(Real [][] m, Entero t)	
+        Entero i,j
+        Real Suma
+        Para (j←0 hasta t-1,1) Hacer
+            suma ←0
+            Para (i←0 hasta t-1,1) Hacer
+                suma ← suma + m[i][j]
+            Fin Para
+            og.Mensaje("columna: ",i,"suma ->",suma, ", promerdi: ",(suma/t))
+        Fin Para
+    Fin Metodo
+fin clase 
