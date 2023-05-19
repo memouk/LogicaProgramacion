@@ -1,0 +1,39 @@
+← ∧
+
+importar clsGenerales
+importar clsVectorGral
+
+publico Clase vector1
+    clsGenerales xx= nuevo clsGenerales()
+    clsVectorGral v1= nuevo clsVectorGral()
+    Entero i
+
+    publico Metodo vacio Principal()
+        ventas()
+    fin Metodo
+
+    Privado Metodo vacio ventas()
+        Entero N, xx, ctl
+        Real acumVta ← 0, totalVtas
+        N ← xx.leerEnteroPosMy0("ingrese la cantidad de vendedores: ")
+        Para (ctl ←1 hasta N,1) Hacer
+            cod ← xx.leerCadena2("ingrese el codigo del vendedor # ",ctl)
+            X ← xx.leerEnteroPos("ingrese la cantidad de ventas ")
+            totalVtas ← 0
+            si (X > 0) Entonces[X]
+                real Vendido 
+                Vendido ← v1.llenarRealesPosMy0(Vendido, X, "")
+                v1.mostrarReales(V, X, "Ventas del vendedor con codigo, ",cod,".")
+                totalVtas ← sumVect(Vendido, X)
+            Fin Si
+            rpta ← "codigo del vendedor",cod,", total ventas realizadas:", totalVtas
+            xx.Mensaje(rpta)
+            acumVta ← acumVta + totalVtas
+         Fin Para
+         rpta ← "Valor de las ventas relizadas", acumVta, "con promedio de:", (acumVta/N)
+    Fin Metodo
+
+    Privado Metodo Real sumVect(Real [] x, Entero tam)
+
+    Fin Metodo
+Fin Clase

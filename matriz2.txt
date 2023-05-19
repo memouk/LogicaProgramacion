@@ -1,0 +1,45 @@
+importar clsGenerales
+importar clsMatrizGral
+
+
+Publico Clase matriz2
+	clsGenerales og= nuevo clsGenerales ()
+	clsMatrizGral om= nuevo clsMatrizGral()
+
+	Publico Metodo vacio principal()
+        Entero M,Z,i,j
+        M ← og.leerEnteroPosMy0("ingrese cantidad de vendedores: ")// kc=M
+        M ← og.leerEnteroPosMy0("ingrese cantidad de vendedores: ")// kf=Z
+        Entero Ventas[Z][M]
+        Cadena nomVen[M]
+        //LLenado por columnas
+        Para (j←0  hasta M-1,1) Hacer
+            nomVen[j] ← og.leerCadena2("ingrese el nombre del vendedor #",(j+1),": ")
+            Para (i←0 hasta Z-1,1) hacer
+                Ventas [i][j] ← og.leerEnteroPos("ventas en Zona ", (i+1),": ")
+            Fin Para
+        Fin Para
+        menorVend(Ventas, Z,M,nomVen)
+    Fin Metodo
+    Privado Metodo vacio menorVend(Entero [][]m,Entero kf, Entero kc, cadena []n)
+        Entero acum, mnVta
+        Entero tmp[kc]
+        cadena nom ←
+        Para (j←0  hasta kc-1,1) Hacer
+            acum ←0
+            Para (i←0 hasta kf-1,1) hacer
+                acum ← acum +m[i][j]
+            Fin Para
+            tmp[j] ← acum
+            Si (j==0 v acum < mnVta) Entonces
+                mnVta ← acum            
+            Fin Si            
+        Fin Para
+        Para (j←0  hasta kc-1,1) Hacer
+            Si (tmp[j]== mnVta) Entonces
+                nom ← nom,n[j]
+            Fin Si
+        Fin Para
+        og.Mensaje("Menor venta: ",mnVta,"realizado por ",nom)
+    Fin Metodo
+Fin Clase

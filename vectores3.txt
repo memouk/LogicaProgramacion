@@ -1,0 +1,60 @@
+← ∧
+importar clsGenerales
+importar clsVectorGral
+
+Publico Clase vector3
+    clsGenerales og =nuevo clsGenerales()
+    clsVectorGral ov =nuevo clsVectorGral()
+
+    Publico Metodo vacio Principal()
+        Entero n,pos,vrIng
+        n ← og.leerEnteroPosMy0("ingrese el tamaño del vector")
+        Entero Datos[n]
+        Datos ← ov.llenarEnteros(Datos,n,"ingrese valor entero")
+        ov.mostrarDatos(Datos,n,"datos ingresados")
+        Datos ← ordInser(Datos,n)
+        ov.mostrarDatos(Datos,n,"datos ordenados asendente")
+        Hacer
+            pos ← og.leerEnteroPosMy0("ingrese la posicion don dequiere ingresa el dato)
+            Si (pos > n) Entonces
+                og.Mensaje("valor no valido")
+            Fin Si
+        Mientras (pos < n)
+        vrIng ← og.leerEntero("ingrese el valor a adicionar)
+        Entero tmp[n+1]
+        tmp ← adicionarDato(Datos,n,vrIng,pos)
+        Entero Datos[n+1]
+        Datos ← tmp
+        ov.mostrarDatos(Datos,n,"") 
+    Fin Metodo
+
+    Privado Metodo Entero [] ordInser(Entero []datos, Entero n)
+        Entero i,j,aux
+        Para (i ← 0 Hasta n-1,1) Hacer
+            aux ← datos[i]
+            j ← i-1
+            Mientras (j >= 0 ∧ aux < datos[j] ) Hacer
+                datos [j+1] ← datos [j]
+                j ← i-1
+            Fin Mientras 
+            datos [j+1] ← aux
+        Fin Para
+        retorne datos
+    Fin Metodo
+    Privado Metodo Entero [] adicionarDato(Entero [] Datos, Entero T, Entero vrDato, Entero Pos)
+        Entero p ← 0, i
+        Entero newVec [T+1]
+        Para (i←0 hasta T-1,1) Hacer
+            Si (i==Pos) Entonces
+                newVec[p] ← vrDato
+                p← p+1
+            Fin Si
+            newVec[p] ← Datos[i]
+            p ← p+1
+        Fin Para
+        Si (Pos == T) Entonces
+            newVec[p]← vrDato
+        Fin Si
+        retorne newVec
+    Fin Metodo
+Fin Clase

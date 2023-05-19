@@ -1,0 +1,10 @@
+Publico Clase SuSeguros
+    clsGenerales xx= nuevo clsGenerales()
+    Privado Metodo entero fact(entero n)
+        entero i, f ←1
+        Para (1 ←2 Hasta n, 1) Hacer
+            f←f*i
+            retorne f
+        Fin Para
+    Pu
+Fin Clase

@@ -1,0 +1,12 @@
+importar clsGenerales
+importar clsVectorGral
+
+Publico Clase vectorOrdenAdic
+    clsGenerales og= nuevo clsGenerales()
+    clsVectorGral ov= nuevo clsVectorGral()
+
+    Privado Metodo Entero[] ordInser(Entero[] datos, entero m)
+        Entero i,j, aux
+        //tomar el codifo de la guia que ordena
+
+    Fin Metodo    

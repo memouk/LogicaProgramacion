@@ -1,0 +1,5 @@
+M ← 6
+cad vNombre[M]
+cad vGenero[M]
+Ent vEdad[M]
+
