@@ -1,4 +1,15 @@
-← ∧
+Crear, llenar y mostrar el vector "Datos" de n enteros,
+luego, ordenarlo ascendentemente (Utilizar el método de
+ordenamiento: Inserción) y mostrarlo. Adicionar un dato
+suministrado por el usuario en la posición deseada conservando los
+valores que tiene y mostrarlo.
+
+Crear el método adicionarDato que reciba un vector de enteros, el
+valor a adicionar y en qué posición; retorne el vector con el valor
+adicionado. Después de adicionado el valor, mostrar el vector.
+
+Nota: Conservar siempre el nombre del vector ← ∧
+
 importar clsGenerales
 importar clsVectorGral
 

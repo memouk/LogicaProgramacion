@@ -1,3 +1,8 @@
+La empresa COQUITO tiene N vendedores y cada uno de ellos realiza una cantidad de
+ventas semanales que generalmente es diferente entre ellos. Llenar y mostrar por cada
+vendedor el vector Vendido con el valor de c/u de las X ventas realizadas y, a partir de él,
+mostrar el código y el total de las ventas realizadas por cada uno, además; mostrar el
+valor total y el promedio del valor de las ventas realizadas por los vendedores en la empresa.
 ← ∧
 
 importar clsGenerales
@@ -20,7 +25,7 @@ publico Clase vector1
             cod ← xx.leerCadena2("ingrese el codigo del vendedor # ",ctl)
             X ← xx.leerEnteroPos("ingrese la cantidad de ventas ")
             totalVtas ← 0
-            si (X > 0) Entonces[X]
+            si (X > 0) Entonces
                 real Vendido 
                 Vendido ← v1.llenarRealesPosMy0(Vendido, X, "")
                 v1.mostrarReales(V, X, "Ventas del vendedor con codigo, ",cod,".")
@@ -34,6 +39,11 @@ publico Clase vector1
     Fin Metodo
 
     Privado Metodo Real sumVect(Real [] x, Entero tam)
-
+        Entero i,acum
+        acum ←0
+        Para (i ←0 hasta tam-1,1) Hacer
+            acum ← acum + x[i]
+        Fin Para
+        retorne acum
     Fin Metodo
 Fin Clase
