@@ -16,24 +16,94 @@ importar clsGenerales
 importar clsVectorGral
 
 Publico Clase paralelo
-
     clsGenerales og= nuevo clsGenerales()
-    clsVectorGral ov= nuevo clsVectorGral()
+    clsVectorGral ov = nuevo clsVectorGral()
+    Entero p
+
 
     Publico metodo vacio Principal()
-        Entero M
-        M ← og.leerEnteroPosMy0("cuantas personas desea ingresar")
-        Entero vEdad[M]
+        capturaInfo()
+    Fin Metodo
+    Privado Metodo vacio capturaInfo()
+        Entero M,p
+        Real prom ← 0
+        adena rpta
+        M ← og.leerEnteroPosMy0("cuantas personas desea ingresar")        
         Cadena vNombre[M],vGenero[M]
-        vNombre ← ov.llenarCadena2(vNombre,M,"ingrese el nombre")
-        vEdad ← ov.llenarEnterosPos(vEdad,M,"ingrese la edad")
-        Hacer
-
-        Mientras(M, F, T o NB)
-
-
+        Entero vEdad[M]
+        Para (p←0 hasta M-1,1 ) Hacer
+            vNombre[p] ← og.leerCadena2("ingrese el nombre de la persona", (p+1))
+            vEdad[p] ← og.leerEnteroPos("ingrese la edad")
+            Hacer
+                vGenero[p] ← og.leerCadena2("ingrese el genero de la persona", (p+1))
+                Si (vGenero[p] <> "M" ∧ vGenero[p] <> "F" ∧ vGenero[p] <> "T" ∧ vGenero[p] <> "NB" ) Entonces
+                    og.Mensaje("Error genero no valido")
+                Fin si            
+            Mientras(vGenero[p] <> "M" ∧ vGenero[p] <> "F" ∧ vGenero[p] <> "T" ∧ vGenero[p] <> "NB")
+        Fin para
+        mostrar(vNombre,vGenero,vEdad,M)
+        Para (p←0 hasta M-1,1 ) Hacer
+            prom ← prom + vEdad[p]
+        Fin Para
+        prom ← prom/M
+        p ← puntoA(vGenero,vEdad,M,prom)
+        Si (p <>-1) Entonces
+            rpta ← p,""mujeres o trans con ed inferion a ",prom,"años"
+        Sino
+            rpta ← "Ninguna mujer o trans"
+        Fin Si
+        og.Mensaje(rpta)
+        p ← cantMn(vEdad,M)
+        Si (p==0) Entonces
+            rpta ← "ningun menos de edad"
+        Sino
+            Cadena menores[p]
+            menores ← puntoB(vNombre,vEdad,M,p)
+            ov.mostrarCadenas(menores,p,"Menores de edad")
+        Fin Si
+        og.Mensaje(rpta)
+    Fin Metodo
+    Privado Metodo vacio mostrar(Cadena[] n, Cadena[] g, entero[] e, entero t)
+        Cadena y ← "personas ingresadas"
+        Para (p←0 hasta t-1,1 ) Hacer
+            y ← y,n[p],",", g[p], ",", e[p]
+        Fin Para
+        og.Mensaje(y)
+    Fin Metodo
+    Privado metodo Entero puntoA(Caden[] g, Entero[] e, Entero t, Real prom)
+        Entero k ← 0
+        Para (p ← 0 hastat-1,1) Hacer
+            Si  ((g[p] == "F" v g[p] == "T") ∧ e[p] < prom) Entonces
+                k ← k +1
+            Fin Si
+        Fin Para
+        Si (k == 0 ) Entonces
+            retorne -1
+        Fin Si
+        retorne k    
+    Fin Metodo
+    Privado metodo Entero cantMn(CEntero[] e, Entero t)
+        Entero k ← 0
+        Para (p ← 0 hasta t-1,1) Hacer
+            Si  (e[p] < 18) Entonces
+                k ← k +1
+            Fin Si
+        Fin Para
+        retorne k    
     Fin Metodo
 
+    Privado Metodo Cadena[] puntoB(Caden[] n, Entero[] e, Entero t, Entero nt)
+        Cadena nombreMn[nt]
+        Entero j ← 0,i
+        Para (i ← 0 hasta t-1,1) Hacer
+            Si  (e[i] < 18) Entonces
+                nombreMn[j] ← e[i]
+                j ← j +1
+            Fin Si
+        Fin Para
+        retorne nombreMn
+    Fin Metodo
+Fin Clase
     
 
 
