@@ -1,0 +1,41 @@
+Crear, llenar y mostrar 3 vectores con la información de M personas: el 1ro con el
+nombre (vNombre, no vacío o en blanco), el 2do con el género (vGenero con valores:
+M, F, T o NB) y el 3ro con la edad (vEdad, entero >= 0). Realizar los siguientes
+procedimientos:
+
+a) Crear el método: puntoA que retorne la cantidad de mujeres o transgéneros que
+tienen una edad inferior al promedio, si existen; o -1, si ninguna mujer o
+transgénero cumple la condición en el vector. Muestre al usuario el valor solicitado
+o el mensaje: "Ninguna mujer o transgénero cumple condición en la lista".
+
+b) Crear el método: puntoB que retorne un vector con los nombres de todas las
+personas que son menores de edad o, el valor: "Ningún menor en la lista" si no
+existen menores de edad. Muestre los nombres solicitados o el mensaje retornado. ← ∧
+
+importar clsGenerales
+importar clsVectorGral
+
+Publico Clase paralelo
+
+    clsGenerales og= nuevo clsGenerales()
+    clsVectorGral ov= nuevo clsVectorGral()
+
+    Publico metodo vacio Principal()
+        Entero M
+        M ← og.leerEnteroPosMy0("cuantas personas desea ingresar")
+        Entero vEdad[M]
+        Cadena vNombre[M],vGenero[M]
+        vNombre ← ov.llenarCadena2(vNombre,M,"ingrese el nombre")
+        vEdad ← ov.llenarEnterosPos(vEdad,M,"ingrese la edad")
+        Hacer
+
+        Mientras(M, F, T o NB)
+
+
+    Fin Metodo
+
+    
+
+
+
+
