@@ -27,7 +27,7 @@ Publico Clase paralelo
     Privado Metodo vacio capturaInfo()
         Entero M,p
         Real prom ← 0
-        adena rpta
+        Cadena rpta
         M ← og.leerEnteroPosMy0("cuantas personas desea ingresar")        
         Cadena vNombre[M],vGenero[M]
         Entero vEdad[M]
